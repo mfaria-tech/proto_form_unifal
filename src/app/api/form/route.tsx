@@ -7,7 +7,7 @@ interface FormEntry {
   message: string;
 }
 
-export async function POST(req: Request) {
+export async function POST(req: Request): Promise<Response> {
   const db = await getDb();
 
   try {

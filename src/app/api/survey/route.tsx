@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { getDb } from "@/lib/db";
 
-export async function POST(req: Request) {
+export async function POST(req: Request): Promise<Response> {
   const db = await getDb();
 
   try {
