@@ -6,7 +6,7 @@
   margin: 24px 27px;
   padding: 15px 18px;
   border: 1px solid #00000030;
-  border-radius: 21px;
+  border-radius: 24px;
   max-width: 720px;
   gap: 9px;
 }
@@ -41,9 +41,10 @@
   gap: 3px;
 }
 
-.checkbox * {
+/* .checkbox * {
   box-sizing: border-box;
 }
+
 .checkbox label {
   -webkit-user-select: none;
   user-select: none;
@@ -54,17 +55,21 @@
   transition: all 0.2s ease;
   display: inline-block;
 }
+
 .checkbox label:not(:last-child) {
   margin-right: 6px;
 }
+
 .checkbox label:hover {
   background: rgba(0,119,255,0.06);
 }
+
 .checkbox label span {
   float: left;
   vertical-align: middle;
   transform: translate3d(0, 0, 0);
 }
+
 .checkbox label span:first-child {
   position: relative;
   width: 18px;
@@ -75,6 +80,7 @@
   transition: all 0.2s ease;
   box-shadow: 0 1px 1px rgba(0,16,75,0.05);
 }
+
 .checkbox label span:first-child svg {
   position: absolute;
   top: 3px;
@@ -90,25 +96,31 @@
   transition-delay: 0.1s;
   transform: translate3d(0, 0, 0);
 }
+
 .checkbox label span:last-child {
   padding-left: 8px;
   line-height: 18px;
 }
+
 .checkbox label:hover span:first-child {
   border-color: #07f;
 }
+
 .checkbox input {
   position: absolute;
   visibility: hidden;
 }
+
 .checkbox input:checked + label span:first-child {
   background: #07f;
   border-color: #07f;
   animation: wave-checkbox 0.4s ease;
 }
+
 .checkbox input:checked + label span:first-child svg {
   stroke-dashoffset: 0;
 }
+
 .checkbox .inlineSvg {
   position: absolute;
   width: 0;
@@ -116,6 +128,7 @@
   pointer-events: none;
   user-select: none;
 }
+
 @media screen and (max-width: 640px) {
   .checkbox label {
     width: 100%;
@@ -141,5 +154,80 @@
   50% {
     transform: scale(0.9);
   }
+} */
+
+.checkboxSketch input[type="checkbox"] {
+  visibility: hidden;
+  display: none;
 }
 
+.checkboxSketch *,
+.checkboxSketch ::after,
+.checkboxSketch ::before {
+  box-sizing: border-box;
+}
+
+.checkboxSketch {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+
+.checkboxSketch .check {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  opacity: 0;
+}
+
+.checkboxSketch label svg {
+  min-width: 45px;
+  vertical-align: middle;
+}
+
+.checkboxSketch .path1 {
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  transition: .5s stroke-dashoffset;
+  opacity: 0;
+}
+
+.checkboxSketch .check:checked + label svg g path {
+  stroke-dashoffset: 0;
+  opacity: 1;
+}
+
+.btnSubmit {
+  background-color: #fbeee0;
+  border: 2px solid #422800;
+  border-radius: 30px;
+  box-shadow: #422800 4px 4px 0 0;
+  color: #422800;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 18px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.btnSubmit:hover {
+  background-color: #fff;
+}
+
+.btnSubmit:active {
+  box-shadow: #422800 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+
+@media (min-width: 768px) {
+  .btnSubmit {
+    min-width: 120px;
+    padding: 0 25px;
+  }
+}
