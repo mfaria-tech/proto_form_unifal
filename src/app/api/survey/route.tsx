@@ -25,7 +25,9 @@ export async function POST(req: Request) {
         }
       });
     });
-  } catch (error: any) {
-    return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+  } catch (error) {
+    const message =
+      error instanceof Error ? error.message : 'Unknown server error';
+    return NextResponse.json({ success: false, error: message }, { status: 500 });
   }
 }
