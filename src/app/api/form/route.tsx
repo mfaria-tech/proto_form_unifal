@@ -1,7 +1,9 @@
 import { NextResponse } from 'next/server';
-import db from '@/lib/db';
+import { getDb } from '@/lib/db';
 
 export async function POST(req: Request) {
+  const db = await getDb();
+
   try {
     const { name, email, message } = await req.json();
 
