@@ -9,7 +9,7 @@ export async function POST(req: Request) {
     // answers: { question: string, answer: string }[]
 
     return new Promise((resolve) => {
-      db.run("INSERT INTO respondents DEFAULT VALUES", function (err) {
+      db.run("INSERT INTO respondents DEFAULT VALUES", function (this: import('sqlite3').Statement, err: Error | null) {
         if (err) {
           resolve(NextResponse.json({ success: false, error: err.message }, { status: 400 }));
         } else {
