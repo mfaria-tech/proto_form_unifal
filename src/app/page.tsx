@@ -38,38 +38,40 @@ export default function SurveyForm() {
   };
 
   return (
-    <main className="max-w-2xl mx-auto p-6">
-      <h1 className="text-2xl font-bold mb-6">Questionário</h1>
-      <form onSubmit={handleSubmit} className="space-y-6">
-        {questions.map((q) => (
-          <div key={q.id} className="space-y-2">
-            <p className="font-medium">{q.id}) {q.text}</p>
-            <div className="flex flex-col gap-2">
-              {q.options.map((opt) => (
-                <label key={opt} className="flex items-center gap-2">
-                  <input
-                    type="radio"
-                    name={q.id}
-                    value={opt}
-                    checked={answers[q.id] === opt}
-                    onChange={(e) => handleChange(q.id, e.target.value)}
-                    required
-                  />
-                  {opt}
-                </label>
-              ))}
+    <main className="">
+      <form onSubmit={handleSubmit} className="">
+        <div className="">
+          <h1 className="">Questionário</h1>
+          {questions.map((q) => (
+            <div key={q.id} className="">
+              <p className="">{q.id}) {q.text}</p>
+              <div className="">
+                {q.options.map((opt) => (
+                  <label key={opt} className="">
+                    <input
+                      type="radio"
+                      name={q.id}
+                      value={opt}
+                      checked={answers[q.id] === opt}
+                      onChange={(e) => handleChange(q.id, e.target.value)}
+                      required
+                    />
+                    {opt}
+                  </label>
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
 
-        <button
-          type="submit"
-          className="w-full bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700"
-        >
-          Enviar
-        </button>
+          <button
+            type="submit"
+            className=""
+          >
+            Enviar
+          </button>
+        </div>
       </form>
-      {status && <p className="mt-4">{status}</p>}
+      {status && <p className="">{status}</p>}
     </main>
   );
 }
